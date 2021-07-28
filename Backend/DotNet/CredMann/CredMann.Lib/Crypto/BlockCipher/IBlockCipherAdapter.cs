@@ -1,6 +1,6 @@
 ﻿using Org.BouncyCastle.Crypto.Parameters;
 
-namespace CredMann.Crypto.BlockCipher
+namespace CredMann.Lib.Crypto.BlockCipher
 {
     public interface IBlockCipherAdapter
     {

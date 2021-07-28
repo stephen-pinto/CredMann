@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text;
 
-namespace CredMann.Common
+namespace CredMann.Lib.Common
 {
     /// <summary>
     /// This class provides the default configurations/options for the services

@@ -1,10 +1,10 @@
-﻿using CredMann.Types;
+﻿using CredMann.Lib.Types;
 using Org.BouncyCastle.Crypto;
 using Org.BouncyCastle.Crypto.Modes;
 using Org.BouncyCastle.Crypto.Paddings;
 using System;
 
-namespace CredMann.Crypto.BlockCipher
+namespace CredMann.Lib.Crypto.BlockCipher
 {
     public class BlockCipherAdapterFactory
     {

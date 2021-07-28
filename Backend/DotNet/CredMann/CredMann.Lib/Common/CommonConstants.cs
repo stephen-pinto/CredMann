@@ -1,4 +1,4 @@
-﻿namespace CredMann.Common
+﻿namespace CredMann.Lib.Common
 {
     public class CommonConstants
     {

@@ -1,9 +1,9 @@
-﻿using CredMann.Common;
+﻿using CredMann.Lib.Common;
 using System;
 using System.Linq;
 using System.Security.Cryptography;
 
-namespace CredMann.Utils
+namespace CredMann.Lib.Utils
 {
     public class RandomDataGenerator
     {

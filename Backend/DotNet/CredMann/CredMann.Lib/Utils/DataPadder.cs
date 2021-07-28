@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 
-namespace CredMann.Utils
+namespace CredMann.Lib.Utils
 {
     public class DataPadder
     {

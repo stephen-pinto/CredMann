@@ -1,54 +1,24 @@
-﻿using CredMann.Common;
-using CredMann.Crypto.BlockCipher;
-using CredMann.Types;
-using CredMann.Utils;
+﻿using CredMann.Lib.Common;
+using CredMann.Lib.Crypto.BlockCipher;
+using CredMann.Lib.Extensions;
+using CredMann.Lib.Types;
 using Org.BouncyCastle.Crypto.Parameters;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace CredMann.Crypto.CipherChain
+namespace CredMann.Lib.Crypto.CipherChain
 {
-    public class BlockCipherChainAdapter : Stack<KeyValuePair<BlockCipherEngine, ParametersWithIV>>
+    public class BlockCipherChainAdapter : CipherChainStack
     {
-        private BlockCipherAdapterFactory factory;
-        private IBlockCipherAdapter[] adapterChain;
-        private bool isModified = true;
-
-        public BlockCipherChainAdapter(BlockCipherAdapterFactory adptrFactory)
-        {
-            factory = adptrFactory;
-        }
-
-        #region Overrides to be aware of changes
-
-        public void Push(BlockCipherEngine engine, ParametersWithIV iv)
-        {
-            isModified = true;
-            base.Push(new KeyValuePair<BlockCipherEngine, ParametersWithIV>(engine, iv));
-        }
-
-        public new void Push(KeyValuePair<BlockCipherEngine, ParametersWithIV> item)
-        {
-            isModified = true;
-            base.Push(item);
-        }
-
-        public new KeyValuePair<BlockCipherEngine, ParametersWithIV> Pop()
-        {
-            isModified = true;
-            return base.Pop();
-        }
-
-        public new void Clear()
-        {
-            isModified = true;
-        }
-
-        #endregion
+        public BlockCipherChainAdapter(BlockCipherAdapterFactory adptrFactory) : base(adptrFactory)
+        { }
 
         public byte[] Encrypt(byte[] data)
         {
+            if (data.IsNullOrEmtpy())
+                throw new ArgumentException("Data is null or empty");
+
             if (isModified)
                 UpdateChanges();
 
@@ -68,18 +38,20 @@ namespace CredMann.Crypto.CipherChain
 
         public byte[] Decrypt(byte[] cipherData)
         {
+            if (cipherData.IsNullOrEmtpy())
+                throw new ArgumentException("Data is null or empty");
+
             if (isModified)
                 UpdateChanges();
 
             if (Count == 0)
                 throw new InvalidOperationException("No engines added!!!");
 
-            byte[] output = cipherData; 
+            byte[] output = cipherData;
 
             for (int i = Count - 1; i >= 0; i--)
             {
                 var item = this.ElementAt(i);
-                var engine = adapterChain.ElementAt(i);
                 output = adapterChain.ElementAt(i).Decrypt(item.Value, output);
             }
 
@@ -101,6 +73,9 @@ namespace CredMann.Crypto.CipherChain
         {
             string numStr = "";
 
+            if (data.IsNullOrEmtpy())
+                throw new ArgumentException("Data is null or empty");
+
             if ((char)data[0] != '[')
                 return null;
 
@@ -121,26 +96,6 @@ namespace CredMann.Crypto.CipherChain
             byte[] originalData = new byte[size];
             Array.Copy(data, index, originalData, 0, size);
             return originalData;
-        }
-
-        private void UpdateChanges()
-        {
-            isModified = false;
-            adapterChain = null;
-
-            if (Count == 0)
-                return;
-
-            adapterChain = new IBlockCipherAdapter[Count];
-
-            int i = 0;
-
-            //The last cipher algorithm will need padding so collect the rest without padding first
-            for (; i < (this.Count - 1); i++)
-                adapterChain[i] = factory.GetAdapter(this.ElementAt(i).Key);
-
-            //Get the last alogorithm with padding
-            adapterChain[i] = factory.GetAdapter(this.ElementAt(i).Key, true);
         }
 
         #endregion

@@ -1,4 +1,4 @@
-﻿namespace CredMann.Types
+﻿namespace CredMann.Lib.Types
 {
     public enum BlockCipherEngine
     {

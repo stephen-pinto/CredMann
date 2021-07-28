@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CredMann.Utils
+namespace CredMann.Lib.Utils
 {
     public class Base64Helper
     {

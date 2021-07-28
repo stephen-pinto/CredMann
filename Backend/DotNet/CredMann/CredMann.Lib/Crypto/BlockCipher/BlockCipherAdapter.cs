@@ -1,8 +1,8 @@
-﻿using CredMann.Types;
+﻿using CredMann.Lib.Types;
 using Org.BouncyCastle.Crypto;
 using Org.BouncyCastle.Crypto.Parameters;
 
-namespace CredMann.Crypto.BlockCipher
+namespace CredMann.Lib.Crypto.BlockCipher
 {
     public class BlockCipherAdapter : IBlockCipherAdapter
     {

@@ -1,11 +1,11 @@
-﻿using CredMann.Common;
-using CredMann.Utils;
+﻿using CredMann.Lib.Common;
+using CredMann.Lib.Utils;
 using Org.BouncyCastle.Crypto;
 using Org.BouncyCastle.Crypto.Parameters;
 using Org.BouncyCastle.Crypto.Prng;
 using System;
 
-namespace CredMann.Crypto.Password
+namespace CredMann.Lib.Crypto.Password
 {
     public class PasswordStrengthener
     {

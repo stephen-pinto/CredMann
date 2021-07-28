@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace CredMann.Utils
+namespace CredMann.Lib.Utils
 {
     public class UtilFactory
     {

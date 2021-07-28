@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace CredMann.Lib
+namespace CredMann.Lib.Lib
 {
     public class Class1
     {
