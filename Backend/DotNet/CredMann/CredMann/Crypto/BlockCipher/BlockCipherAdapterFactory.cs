@@ -25,7 +25,7 @@ namespace CredMann.Crypto.BlockCipher
         {
             BufferedBlockCipher buffBlockCipher;
             SicBlockCipher sicBlockCipher = new SicBlockCipher(engine);
-
+            
             if (padding)
                 buffBlockCipher = new PaddedBufferedBlockCipher(sicBlockCipher, new Pkcs7Padding());
             else
