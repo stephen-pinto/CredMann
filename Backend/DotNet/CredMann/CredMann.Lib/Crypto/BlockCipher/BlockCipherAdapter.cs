@@ -6,15 +6,15 @@ namespace CredMann.Lib.Crypto.BlockCipher
 {
     public class BlockCipherAdapter : IBlockCipherAdapter
     {
-        protected BufferedBlockCipher _bufferedBlockCipher;
-        protected BlockCipherEngine _cipherEngine;
+        protected BufferedBlockCipher bufferedBlockCipher;
+        protected BlockCipherEngine cipherEngine;
 
         public BlockCipherEngine CipherEngine
         {
             get
             {
-                if (_bufferedBlockCipher != null)
-                    return CipherEnumMapper.GetEngineType(_bufferedBlockCipher.AlgorithmName);
+                if (bufferedBlockCipher != null)
+                    return CipherEnumMapper.GetEngineType(bufferedBlockCipher.AlgorithmName);
                 else
                     return BlockCipherEngine.None;
             }
@@ -22,19 +22,19 @@ namespace CredMann.Lib.Crypto.BlockCipher
 
         public BlockCipherAdapter(BufferedBlockCipher blockCipher)
         {
-            _bufferedBlockCipher = blockCipher;            
+            bufferedBlockCipher = blockCipher;            
         }
 
         public byte[] Encrypt(ParametersWithIV key, byte[] data)
         {
-            _bufferedBlockCipher.Init(true, key);
+            bufferedBlockCipher.Init(true, key);
             byte[] cipherText = Process(data);
             return cipherText;
         }
 
         public byte[] Decrypt(ParametersWithIV key, byte[] data)
         {
-            _bufferedBlockCipher.Init(false, key);
+            bufferedBlockCipher.Init(false, key);
             byte[] plainText = Process(data);
             return plainText;
         }
@@ -42,10 +42,10 @@ namespace CredMann.Lib.Crypto.BlockCipher
         private byte[] Process(byte[] data)
         {
             //Prepare output buffer
-            byte[] output = new byte[_bufferedBlockCipher.GetOutputSize(data.Length)];
+            byte[] output = new byte[bufferedBlockCipher.GetOutputSize(data.Length)];
 
             //Process these bytes
-            int bytesProcessed = _bufferedBlockCipher.ProcessBytes(
+            int bytesProcessed = bufferedBlockCipher.ProcessBytes(
                     data,
                     0,
                     data.Length,
@@ -54,7 +54,7 @@ namespace CredMann.Lib.Crypto.BlockCipher
             );
 
             //Finalize
-            _bufferedBlockCipher.DoFinal(output, bytesProcessed);
+            bufferedBlockCipher.DoFinal(output, bytesProcessed);
             return output;
         }
     }
