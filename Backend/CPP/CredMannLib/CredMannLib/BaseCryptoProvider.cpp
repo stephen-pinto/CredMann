@@ -1,0 +1,81 @@
+#include "pch.h"
+//#include "BaseCryptoProvider.h"
+//#include "Util.h"
+//#include <cryptopp/aes.h>
+//#include <cryptopp/sha.h>
+//#include <cryptopp/pwdbased.h>
+//#include <cryptopp/rijndael.h>
+//#include <cryptopp/cryptlib.h>
+//#include <cryptopp/eax.h>
+//#include <cryptopp/base64.h>
+//#include <cryptopp/osrng.h>
+//
+//using namespace std;
+//using namespace CryptoPP;
+//using namespace CredMannLib::Util;
+//using namespace CredMannLib::Security;
+//
+//template<typename T>
+//string BaseCryptoProvider<T>::GenerateChecksum(const vector<byte> content)
+//{
+//	string hash;
+//	SHA256 sha256;
+//	VectorSource vsrc(content, true,
+//		new HashFilter(sha256,
+//			new Base64Encoder(
+//				new StringSink(hash))));
+//
+//	return hash;
+//}
+//
+//template<typename T>
+//string BaseCryptoProvider<T>::Encrypt(const SecByteBlock& key, const SecByteBlock& iv, const string& plainText)
+//{
+//	string encrText;
+//
+//	try
+//	{
+//		EAX_Final<T, true> encr;
+//		//EAX<AES>::Encryption encr;
+//		encr.SetKeyWithIV(key, key.size(), iv, iv.size());
+//		StringSource str(plainText, true,
+//			new AuthenticatedEncryptionFilter(
+//				encr,
+//				new StringSink(encrText)
+//			)
+//		);
+//	}
+//	catch (const Exception& e)
+//	{
+//		cerr << e.what() << '\n';
+//		throw e;
+//	}
+//
+//	return encrText;
+//}
+//
+//template<typename T>
+//string BaseCryptoProvider<T>::Decrypt(const SecByteBlock& key, const SecByteBlock& iv, const string& cipherText)
+//{
+//	string actText;
+//
+//	try
+//	{
+//		EAX_Final<T, false> decr;
+//		//EAX<AES>::Decryption decr;
+//		decr.SetKeyWithIV(key, key.size(), iv, iv.size());
+//		StringSource str(cipherText, true,
+//			new AuthenticatedDecryptionFilter(
+//				decr,
+//				new StringSink(actText)
+//			)
+//		);
+//	}
+//	catch (const Exception& e)
+//	{
+//		std::cerr << e.what() << '\n';
+//		throw e;
+//	}
+//
+//	return actText;
+//}

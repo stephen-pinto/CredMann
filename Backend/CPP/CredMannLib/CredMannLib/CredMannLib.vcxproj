@@ -140,6 +140,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="AESCryptoProvider.h" />
+    <ClInclude Include="BaseCryptoProvider.h" />
     <ClInclude Include="Common.h" />
     <ClInclude Include="DebugHelpers.h" />
     <ClInclude Include="framework.h" />
@@ -152,6 +153,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AESCryptoProvider.cpp" />
+    <ClCompile Include="BaseCryptoProvider.cpp" />
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="PasswordStrengthner.cpp" />
     <ClCompile Include="pch.cpp">

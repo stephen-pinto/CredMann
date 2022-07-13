@@ -7,6 +7,7 @@
 #include "../CredMannLib/Util.h"
 #include "../CredMannLib/AESCryptoProvider.h"
 #include "../CredMannLib/SerpentCryptoProvider.h"
+#include "../CredMannLib/BaseCryptoProvider.h"
 
 using namespace CredMannLib::Password;
 using namespace CredMannLib::Security;
@@ -21,6 +22,7 @@ void Test1();
 void Test2();
 void Test3();
 void Test4();
+void Test5();
 
 int Run(int argc, char** argv)
 {
@@ -128,6 +130,24 @@ void Test4()
 	auto comb1 = GenKey(pass1, salt);
 
 	SerpentCryptoProvider provider;
+	string origText = "This is some plain text which we wish to encrypt";
+	string encrText = provider.Encrypt(get<0>(comb1), iv, "This is some plain text which we wish to encrypt...");
+	string decrText = provider.Decrypt(get<0>(comb1), iv, encrText);
+
+	_PRINT("Encr. Text: " << encrText << "|||");
+	_PRINT("Decr. Text: " << decrText << "|||");
+}
+
+void Test5()
+{
+	SaltGenerator sg;
+	SecByteBlock iv = sg.GenerateIV(KEY_SIZE);
+	SecByteBlock salt = sg.GenerateIV(KEY_SIZE);
+	string password1 = "somepass";
+	SecByteBlock pass1((const CryptoPP::byte*)password1.data(), password1.length());
+	auto comb1 = GenKey(pass1, salt);
+
+	BaseCryptoProvider<AES> provider;
 	string origText = "This is some plain text which we wish to encrypt";
 	string encrText = provider.Encrypt(get<0>(comb1), iv, "This is some plain text which we wish to encrypt...");
 	string decrText = provider.Decrypt(get<0>(comb1), iv, encrText);

@@ -45,6 +45,9 @@
     <ClInclude Include="SerpentCryptoProvider.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="BaseCryptoProvider.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
@@ -60,6 +63,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="SerpentCryptoProvider.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseCryptoProvider.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
