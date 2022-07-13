@@ -142,9 +142,11 @@
     <ClInclude Include="Common.h" />
     <ClInclude Include="DebugHelpers.h" />
     <ClInclude Include="framework.h" />
+    <ClInclude Include="ICryptoProvider.h" />
     <ClInclude Include="PasswordStrengthner.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="SaltGenerator.h" />
+    <ClInclude Include="Util.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp" />

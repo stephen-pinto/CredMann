@@ -4,6 +4,7 @@
 #include <tuple>
 #include "../CredMannLib/PasswordStrengthner.h"
 #include "../CredMannLib/SaltGenerator.h"
+#include "../CredMannLib/Util.h"
 
 using namespace CredMannLib::Password;
 using namespace CredMannLib::Util;
@@ -21,6 +22,16 @@ tuple<SecByteBlock, string> GenKey(SecByteBlock& pass, SecByteBlock& iv)
 	HexEncoder encoder(new StringSink(result));
 	encoder.Put(key, key.size());
 	encoder.MessageEnd();
+	return tuple<SecByteBlock, string>(key, result);
+}
+
+tuple<SecByteBlock, string> GenKey2(SecByteBlock& pass, SecByteBlock& iv)
+{
+	PasswordStrengthner ps;
+	SecByteBlock key = ps.GenerateKey_PKCS5_PBKDF2(pass, iv, DEFAULT_ITERATIONS);
+	string result;
+	UtilServices serv;
+	result = serv.HexEncode(key);
 	return tuple<SecByteBlock, string>(key, result);
 }
 
@@ -45,8 +56,23 @@ void Test1()
 	_PRINT("3.: " << get<1>(comb3));
 }
 
+void Test2()
+{
+	SaltGenerator sg;
+	SecByteBlock iv = sg.GenerateIV(KEY_SIZE);
+	string password1 = "somepass";
+	SecByteBlock pass1((const CryptoPP::byte*)password1.data(), password1.length());
+	auto comb1 = GenKey(pass1, iv);
+
+	string password2 = "somepass";
+	SecByteBlock pass2((const CryptoPP::byte*)password2.data(), password2.length());
+	auto comb2 = GenKey2(pass2, iv);
+	_PRINT("1.: " << get<1>(comb1));
+	_PRINT("2.: " << get<1>(comb2));
+}
+
 int Run(int argc, char** argv)
 {
-	Test1();
+	Test2();
 	return 0;
 }

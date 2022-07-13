@@ -33,6 +33,12 @@
     <ClInclude Include="DebugHelpers.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="ICryptoProvider.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Util.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">

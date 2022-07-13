@@ -6,6 +6,7 @@
 #include <cryptopp/sha.h>
 #include <cryptopp/hex.h>
 #include "SaltGenerator.h"
+
 #define DEFAULT_ITERATIONS 50000
 
 namespace CredMannLib
