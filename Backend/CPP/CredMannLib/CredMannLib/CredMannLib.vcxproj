@@ -139,8 +139,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="AESCryptoProvider.h" />
-    <ClInclude Include="BaseCryptoProvider.h" />
+    <ClInclude Include="AESCipherProvider.h" />
+    <ClInclude Include="BaseBlockCipherProvider.h" />
     <ClInclude Include="Common.h" />
     <ClInclude Include="DebugHelpers.h" />
     <ClInclude Include="framework.h" />
@@ -148,8 +148,8 @@
     <ClInclude Include="PasswordStrengthner.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="SaltGenerator.h" />
-    <ClInclude Include="SerpentCryptoProvider.h" />
-    <ClInclude Include="TwofishCryptoProvider.h" />
+    <ClInclude Include="SerpentCipherProvider.h" />
+    <ClInclude Include="TwofishCipherProvider.h" />
     <ClInclude Include="Util.h" />
   </ItemGroup>
   <ItemGroup>

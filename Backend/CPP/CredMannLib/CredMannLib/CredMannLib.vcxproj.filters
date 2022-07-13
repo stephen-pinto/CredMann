@@ -39,16 +39,16 @@
     <ClInclude Include="Util.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="AESCryptoProvider.h">
+    <ClInclude Include="AESCipherProvider.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="SerpentCryptoProvider.h">
+    <ClInclude Include="SerpentCipherProvider.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="BaseCryptoProvider.h">
+    <ClInclude Include="BaseBlockCipherProvider.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="TwofishCryptoProvider.h">
+    <ClInclude Include="TwofishCipherProvider.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

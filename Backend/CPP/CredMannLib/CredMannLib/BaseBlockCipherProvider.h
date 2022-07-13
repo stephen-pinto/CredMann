@@ -11,7 +11,7 @@ namespace CredMannLib
 	namespace Security
 	{
 		template<typename T>
-		class BaseCryptoProvider : public ICryptoProvider
+		class BaseBlockCipherProvider : public ICryptoProvider
 		{
 		public:
 
@@ -24,7 +24,7 @@ namespace CredMannLib
 		};
 
 		template<typename T>
-		std::string BaseCryptoProvider<T>::GenerateChecksum(const std::vector<CryptoPP::byte> content)
+		std::string BaseBlockCipherProvider<T>::GenerateChecksum(const std::vector<CryptoPP::byte> content)
 		{
 			using namespace CryptoPP;
 			using namespace std;
@@ -40,7 +40,7 @@ namespace CredMannLib
 		}
 
 		template<typename T>
-		std::string BaseCryptoProvider<T>::Encrypt(const CryptoPP::SecByteBlock& key, const CryptoPP::SecByteBlock& iv, const std::string& plainText)
+		std::string BaseBlockCipherProvider<T>::Encrypt(const CryptoPP::SecByteBlock& key, const CryptoPP::SecByteBlock& iv, const std::string& plainText)
 		{
 			using namespace CryptoPP;
 			using namespace std;
@@ -68,7 +68,7 @@ namespace CredMannLib
 		}
 
 		template<typename T>
-		std::string BaseCryptoProvider<T>::Decrypt(const CryptoPP::SecByteBlock& key, const CryptoPP::SecByteBlock& iv, const std::string& cipherText)
+		std::string BaseBlockCipherProvider<T>::Decrypt(const CryptoPP::SecByteBlock& key, const CryptoPP::SecByteBlock& iv, const std::string& cipherText)
 		{
 			using namespace CryptoPP;
 			using namespace std;

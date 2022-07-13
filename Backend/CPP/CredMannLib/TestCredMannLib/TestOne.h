@@ -5,9 +5,10 @@
 #include "../CredMannLib/PasswordStrengthner.h"
 #include "../CredMannLib/SaltGenerator.h"
 #include "../CredMannLib/Util.h"
-#include "../CredMannLib/AESCryptoProvider.h"
-#include "../CredMannLib/SerpentCryptoProvider.h"
-#include "../CredMannLib/BaseCryptoProvider.h"
+#include "../CredMannLib/AESCipherProvider.h"
+#include "../CredMannLib/SerpentCipherProvider.h"
+#include "../CredMannLib/BaseBlockCipherProvider.h"
+#include "../CredMannLib/TwofishCipherProvider.h"
 
 using namespace CredMannLib::Password;
 using namespace CredMannLib::Security;
@@ -15,7 +16,7 @@ using namespace CredMannLib::Util;
 using namespace CryptoPP;
 using namespace std;
 
-#define KEY_SIZE 16
+#define KEY_SIZE 32
 #define TEST_ITERATIONS 1024
 
 void Test1();
@@ -26,7 +27,7 @@ void Test5();
 
 int Run(int argc, char** argv)
 {
-	Test3();
+	Test5();
 	return 0;
 }
 
@@ -111,7 +112,7 @@ void Test3()
 	SecByteBlock pass1((const CryptoPP::byte*)password1.data(), password1.length());
 	auto comb1 = GenKey(pass1, salt);
 
-	AESCryptoProvider provider;
+	AESCipherProvider provider;
 	string origText = "This is some plain text which we wish to encrypt";
 	string encrText = provider.Encrypt(get<0>(comb1), iv, "This is some plain text which we wish to encrypt...");
 	string decrText = provider.Decrypt(get<0>(comb1), iv, encrText);
@@ -129,7 +130,7 @@ void Test4()
 	SecByteBlock pass1((const CryptoPP::byte*)password1.data(), password1.length());
 	auto comb1 = GenKey(pass1, salt);
 
-	SerpentCryptoProvider provider;
+	SerpentCipherProvider provider;
 	string origText = "This is some plain text which we wish to encrypt";
 	string encrText = provider.Encrypt(get<0>(comb1), iv, "This is some plain text which we wish to encrypt...");
 	string decrText = provider.Decrypt(get<0>(comb1), iv, encrText);
@@ -147,7 +148,7 @@ void Test5()
 	SecByteBlock pass1((const CryptoPP::byte*)password1.data(), password1.length());
 	auto comb1 = GenKey(pass1, salt);
 
-	BaseCryptoProvider<AES> provider;
+	BaseBlockCipherProvider<Twofish> provider;
 	string origText = "This is some plain text which we wish to encrypt";
 	string encrText = provider.Encrypt(get<0>(comb1), iv, "This is some plain text which we wish to encrypt...");
 	string decrText = provider.Decrypt(get<0>(comb1), iv, encrText);

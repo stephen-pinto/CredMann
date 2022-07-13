@@ -2,14 +2,14 @@
 
 #include "Common.h"
 #include "ICryptoProvider.h"
-#include "BaseCryptoProvider.h"
+#include "BaseBlockCipherProvider.h"
 #include <cryptopp/twofish.h>
 
 namespace CredMannLib
 {
 	namespace Security
 	{
-		class TwofishCryptoProvider : public BaseCryptoProvider<CryptoPP::Twofish>
+		class TwofishCipherProvider : public BaseBlockCipherProvider<CryptoPP::Twofish>
 		{
 		};
 	}
