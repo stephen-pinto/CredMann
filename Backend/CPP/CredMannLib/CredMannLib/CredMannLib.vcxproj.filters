@@ -48,6 +48,9 @@
     <ClInclude Include="BaseCryptoProvider.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="TwofishCryptoProvider.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
@@ -57,15 +60,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="PasswordStrengthner.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="AESCryptoProvider.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="SerpentCryptoProvider.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="BaseCryptoProvider.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

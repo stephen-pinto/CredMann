@@ -2,21 +2,15 @@
 
 #include "Common.h"
 #include "ICryptoProvider.h"
+#include "BaseCryptoProvider.h"
+#include <cryptopp/serpent.h>
 
 namespace CredMannLib
 {
 	namespace Security
 	{
-		class SerpentCryptoProvider : public ICryptoProvider
+		class SerpentCryptoProvider : public BaseCryptoProvider<CryptoPP::Serpent>
 		{
-		public:
-
-			// Inherited via ICryptoProvider
-			virtual std::string GenerateChecksum(const std::vector<CryptoPP::byte> content) override;
-
-			virtual std::string Encrypt(const CryptoPP::SecByteBlock& key, const CryptoPP::SecByteBlock& iv, const std::string& plainText) override;
-
-			virtual std::string Decrypt(const CryptoPP::SecByteBlock& key, const CryptoPP::SecByteBlock& iv, const std::string& cipherText) override;
 		};
 	}
 }

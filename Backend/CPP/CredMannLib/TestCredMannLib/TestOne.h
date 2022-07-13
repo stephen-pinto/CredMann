@@ -26,7 +26,7 @@ void Test5();
 
 int Run(int argc, char** argv)
 {
-	Test4();
+	Test3();
 	return 0;
 }
 

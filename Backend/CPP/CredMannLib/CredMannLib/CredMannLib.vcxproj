@@ -149,11 +149,10 @@
     <ClInclude Include="pch.h" />
     <ClInclude Include="SaltGenerator.h" />
     <ClInclude Include="SerpentCryptoProvider.h" />
+    <ClInclude Include="TwofishCryptoProvider.h" />
     <ClInclude Include="Util.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="AESCryptoProvider.cpp" />
-    <ClCompile Include="BaseCryptoProvider.cpp" />
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="PasswordStrengthner.cpp" />
     <ClCompile Include="pch.cpp">
@@ -162,7 +161,6 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="SerpentCryptoProvider.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
