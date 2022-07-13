@@ -131,6 +131,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="TestOne.h" />
+    <ClInclude Include="TestTwo.h.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CredMannLib\CredMannLib.vcxproj">

@@ -9,6 +9,7 @@
 #include "../CredMannLib/SerpentCipherProvider.h"
 #include "../CredMannLib/BaseBlockCipherProvider.h"
 #include "../CredMannLib/TwofishCipherProvider.h"
+#include "../CredMannLib/ChaChaCipherProvider.h"
 
 using namespace CredMannLib::Password;
 using namespace CredMannLib::Security;
@@ -24,10 +25,11 @@ void Test2();
 void Test3();
 void Test4();
 void Test5();
+void Test6();
 
 int Run(int argc, char** argv)
 {
-	Test5();
+	Test6();
 	return 0;
 }
 
@@ -149,6 +151,24 @@ void Test5()
 	auto comb1 = GenKey(pass1, salt);
 
 	BaseBlockCipherProvider<Twofish> provider;
+	string origText = "This is some plain text which we wish to encrypt";
+	string encrText = provider.Encrypt(get<0>(comb1), iv, "This is some plain text which we wish to encrypt...");
+	string decrText = provider.Decrypt(get<0>(comb1), iv, encrText);
+
+	_PRINT("Encr. Text: " << encrText << "|||");
+	_PRINT("Decr. Text: " << decrText << "|||");
+}
+
+void Test6()
+{
+	SaltGenerator sg;
+	SecByteBlock iv = sg.GenerateIV(KEY_SIZE);
+	SecByteBlock salt = sg.GenerateIV(KEY_SIZE);
+	string password1 = "somepass";
+	SecByteBlock pass1((const CryptoPP::byte*)password1.data(), password1.length());
+	auto comb1 = GenKey(pass1, salt);
+
+	ChaChaCipherProvider provider;
 	string origText = "This is some plain text which we wish to encrypt";
 	string encrText = provider.Encrypt(get<0>(comb1), iv, "This is some plain text which we wish to encrypt...");
 	string decrText = provider.Decrypt(get<0>(comb1), iv, encrText);
