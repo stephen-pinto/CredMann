@@ -16,7 +16,7 @@ namespace CredMannLib
 		class PasswordStrengthner
 		{
 		public:
-			CryptoPP::SecByteBlock GenerateKey_PKCS5_PBKDF2(const CryptoPP::SecByteBlock& password, const CryptoPP::SecByteBlock& salt, size_t iterations = DEFAULT_ITERATIONS);
+			CryptoPP::SecByteBlock GenerateKey_PKCS5_PBKDF2(const CryptoPP::SecByteBlock& password, const CryptoPP::SecByteBlock& salt, unsigned int iterations = DEFAULT_ITERATIONS);
 		};
 	}
 }

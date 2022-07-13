@@ -13,7 +13,7 @@ using namespace CredMannLib::Util;
 using namespace CryptoPP;
 using namespace std;
 
-#define KEY_SIZE 32
+#define KEY_SIZE 16
 #define TEST_ITERATIONS 1024
 
 void Test1();

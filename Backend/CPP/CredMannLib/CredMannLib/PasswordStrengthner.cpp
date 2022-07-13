@@ -5,7 +5,7 @@ using namespace CredMannLib::Password;
 using namespace CryptoPP;
 using namespace std;
 
-SecByteBlock PasswordStrengthner::GenerateKey_PKCS5_PBKDF2(const SecByteBlock& password,const SecByteBlock& salt, size_t iterations)
+SecByteBlock PasswordStrengthner::GenerateKey_PKCS5_PBKDF2(const SecByteBlock& password,const SecByteBlock& salt, unsigned int iterations)
 {
     SecByteBlock key(SHA256::DIGESTSIZE);
     PKCS5_PBKDF2_HMAC<SHA256> pbkdf;
