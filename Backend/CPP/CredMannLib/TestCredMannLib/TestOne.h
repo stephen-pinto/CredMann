@@ -69,6 +69,21 @@ void Test2()
 	auto comb2 = GenKey2(pass2, iv);
 	_PRINT("1.: " << get<1>(comb1));
 	_PRINT("2.: " << get<1>(comb2));
+
+	_PRINT("\nOriginal");
+	for (int i = 0; i < 20; i++)
+	{
+		std::cout << get<0>(comb2)[i];
+	}
+
+	UtilServices serv;
+	SecByteBlock decodedKey = serv.HexDecode(get<1>(comb2));
+
+	_PRINT("\nDecoded");
+	for (int i = 0; i < 20; i++)
+	{
+		std::cout << decodedKey[i];
+	}
 }
 
 int Run(int argc, char** argv)
