@@ -10,9 +10,12 @@ namespace CredMannLib
 		class ICryptoProvider
 		{
 		public:
-			std::string GenerateChecksum(const std::vector<byte_t> content);
-			std::string Encrypt(const CryptoPP::SecByteBlock& key, const CryptoPP::SecByteBlock& iv, std::string plainText);
-			std::string Decrypt(const CryptoPP::SecByteBlock& key, const CryptoPP::SecByteBlock& iv, std::string cipherText);
+			
+			virtual std::string GenerateChecksum(const std::vector<CryptoPP::byte> content) = 0;
+
+			virtual std::string Encrypt(const CryptoPP::SecByteBlock& key, const CryptoPP::SecByteBlock& iv, const std::string& plainText) = 0;
+
+			virtual std::string Decrypt(const CryptoPP::SecByteBlock& key, const CryptoPP::SecByteBlock& iv, const std::string& cipherText) = 0;
 		};
 	}
 }

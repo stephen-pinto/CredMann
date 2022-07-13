@@ -5,19 +5,31 @@
 #include "../CredMannLib/PasswordStrengthner.h"
 #include "../CredMannLib/SaltGenerator.h"
 #include "../CredMannLib/Util.h"
+#include "../CredMannLib/AESCryptoProvider.h"
 
 using namespace CredMannLib::Password;
+using namespace CredMannLib::Security;
 using namespace CredMannLib::Util;
 using namespace CryptoPP;
 using namespace std;
 
 #define KEY_SIZE 32
-#define DEFAULT_ITERATIONS 1024
+#define TEST_ITERATIONS 1024
+
+void Test1();
+void Test2();
+void Test3();
+
+int Run(int argc, char** argv)
+{
+	Test3();
+	return 0;
+}
 
 tuple<SecByteBlock, string> GenKey(SecByteBlock& pass, SecByteBlock& iv)
 {
 	PasswordStrengthner ps;
-	SecByteBlock key = ps.GenerateKey_PKCS5_PBKDF2(pass, iv, DEFAULT_ITERATIONS);
+	SecByteBlock key = ps.GenerateKey_PKCS5_PBKDF2(pass, iv, TEST_ITERATIONS);
 	string result;
 	HexEncoder encoder(new StringSink(result));
 	encoder.Put(key, key.size());
@@ -86,8 +98,21 @@ void Test2()
 	}
 }
 
-int Run(int argc, char** argv)
+void Test3()
 {
-	Test2();
-	return 0;
+
+	SaltGenerator sg;
+	SecByteBlock iv = sg.GenerateIV(KEY_SIZE);
+	SecByteBlock salt = sg.GenerateIV(KEY_SIZE);
+	string password1 = "somepass";
+	SecByteBlock pass1((const CryptoPP::byte*)password1.data(), password1.length());
+	auto comb1 = GenKey(pass1, salt);
+
+	AESCryptoProvider provider;
+	string origText = "This is some plain text which we wish to encrypt";
+	string encrText = provider.Encrypt(get<0>(comb1), iv, "This is some plain text which we wish to encrypt...");
+	string decrText = provider.Decrypt(get<0>(comb1), iv, encrText);
+
+	_PRINT("Encr. Text: " << encrText << "|||");
+	_PRINT("Decr. Text: " << decrText << "|||");
 }

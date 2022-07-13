@@ -11,8 +11,8 @@ namespace CredMannLib
 		class UtilServices
 		{
 		public:
-			std::string HexEncode(const CryptoPP::SecByteBlock& content);
-			CryptoPP::SecByteBlock HexDecode(const std::string& content);
+			inline std::string HexEncode(const CryptoPP::SecByteBlock& content);
+			inline CryptoPP::SecByteBlock HexDecode(const std::string& content);
 		};
 
 		std::string UtilServices::HexEncode(const CryptoPP::SecByteBlock& content)
