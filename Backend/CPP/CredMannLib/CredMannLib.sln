@@ -5,6 +5,8 @@ VisualStudioVersion = 17.2.32616.157
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CredMannLib", "CredMannLib\CredMannLib.vcxproj", "{A415625D-FDD6-4EA3-B7E4-2294D451FFD7}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TestCredMannLib", "TestCredMannLib\TestCredMannLib.vcxproj", "{61DC3320-D5C9-40B8-98AB-2374BCF99A05}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -21,6 +23,14 @@ Global
 		{A415625D-FDD6-4EA3-B7E4-2294D451FFD7}.Release|x64.Build.0 = Release|x64
 		{A415625D-FDD6-4EA3-B7E4-2294D451FFD7}.Release|x86.ActiveCfg = Release|Win32
 		{A415625D-FDD6-4EA3-B7E4-2294D451FFD7}.Release|x86.Build.0 = Release|Win32
+		{61DC3320-D5C9-40B8-98AB-2374BCF99A05}.Debug|x64.ActiveCfg = Debug|x64
+		{61DC3320-D5C9-40B8-98AB-2374BCF99A05}.Debug|x64.Build.0 = Debug|x64
+		{61DC3320-D5C9-40B8-98AB-2374BCF99A05}.Debug|x86.ActiveCfg = Debug|Win32
+		{61DC3320-D5C9-40B8-98AB-2374BCF99A05}.Debug|x86.Build.0 = Debug|Win32
+		{61DC3320-D5C9-40B8-98AB-2374BCF99A05}.Release|x64.ActiveCfg = Release|x64
+		{61DC3320-D5C9-40B8-98AB-2374BCF99A05}.Release|x64.Build.0 = Release|x64
+		{61DC3320-D5C9-40B8-98AB-2374BCF99A05}.Release|x86.ActiveCfg = Release|Win32
+		{61DC3320-D5C9-40B8-98AB-2374BCF99A05}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
