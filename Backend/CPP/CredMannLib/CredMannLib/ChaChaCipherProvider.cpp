@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "ChaChaCipherProvider.h"
+#include <iostream>
 
 using namespace CredMannLib::Security;
 using namespace CryptoPP;
