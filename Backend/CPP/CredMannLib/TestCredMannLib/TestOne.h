@@ -2,14 +2,14 @@
 
 #include <iostream>
 #include <tuple>
-#include "../CredMannLib/PasswordStrengthner.h"
-#include "../CredMannLib/SaltGenerator.h"
-#include "../CredMannLib/Util.h"
-#include "../CredMannLib/AESCipherProvider.h"
-#include "../CredMannLib/SerpentCipherProvider.h"
-#include "../CredMannLib/BaseBlockCipherProvider.h"
-#include "../CredMannLib/TwofishCipherProvider.h"
-#include "../CredMannLib/ChaChaCipherProvider.h"
+#include "../CredMannLib/include/PasswordStrengthner.h"
+#include "../CredMannLib/include/SaltGenerator.h"
+#include "../CredMannLib/include/Util.h"
+#include "../CredMannLib/include/AESCipherProvider.h"
+#include "../CredMannLib/include/SerpentCipherProvider.h"
+#include "../CredMannLib/include/BaseBlockCipherProvider.h"
+#include "../CredMannLib/include/TwofishCipherProvider.h"
+#include "../CredMannLib/include/ChaChaCipherProvider.h"
 
 using namespace CredMannLib::Password;
 using namespace CredMannLib::Security;

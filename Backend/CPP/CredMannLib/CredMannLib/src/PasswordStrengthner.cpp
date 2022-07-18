@@ -1,5 +1,5 @@
 #include "pch.h"
-#include "PasswordStrengthner.h"
+#include "../include/PasswordStrengthner.h"
 
 using namespace CredMannLib::Password;
 using namespace CryptoPP;

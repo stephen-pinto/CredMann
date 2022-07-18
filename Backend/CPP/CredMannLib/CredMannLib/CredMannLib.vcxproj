@@ -18,6 +18,31 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\AESCipherProvider.h" />
+    <ClInclude Include="include\BaseBlockCipherProvider.h" />
+    <ClInclude Include="include\ChaChaCipherProvider.h" />
+    <ClInclude Include="include\Common.h" />
+    <ClInclude Include="include\DebugHelpers.h" />
+    <ClInclude Include="include\FileChunker.h" />
+    <ClInclude Include="include\FileChunkerState.h" />
+    <ClInclude Include="include\framework.h" />
+    <ClInclude Include="include\ICryptoProvider.h" />
+    <ClInclude Include="include\PasswordStrengthner.h" />
+    <ClInclude Include="include\SaltGenerator.h" />
+    <ClInclude Include="include\SerpentCipherProvider.h" />
+    <ClInclude Include="include\TwofishCipherProvider.h" />
+    <ClInclude Include="include\Util.h" />
+    <ClInclude Include="src\pch.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\ChaChaCipherProvider.cpp" />
+    <ClCompile Include="src\dllmain.cpp" />
+    <ClCompile Include="src\FileChunker.cpp" />
+    <ClCompile Include="src\FileChunkerState.cpp" />
+    <ClCompile Include="src\PasswordStrengthner.cpp" />
+    <ClCompile Include="src\pch.cpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
@@ -70,6 +95,9 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <IntDir>..\build\$(Platform)\$(Configuration)\CredMannLib\</IntDir>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
@@ -110,7 +138,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;CREDMANNLIB_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
     </ClCompile>
     <Link>
@@ -138,36 +166,6 @@
       <EnableUAC>false</EnableUAC>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClInclude Include="AESCipherProvider.h" />
-    <ClInclude Include="BaseBlockCipherProvider.h" />
-    <ClInclude Include="ChaChaCipherProvider.h" />
-    <ClInclude Include="Common.h" />
-    <ClInclude Include="DebugHelpers.h" />
-    <ClInclude Include="FileChunker.h" />
-    <ClInclude Include="FileChunkerState.h" />
-    <ClInclude Include="framework.h" />
-    <ClInclude Include="ICryptoProvider.h" />
-    <ClInclude Include="PasswordStrengthner.h" />
-    <ClInclude Include="pch.h" />
-    <ClInclude Include="SaltGenerator.h" />
-    <ClInclude Include="SerpentCipherProvider.h" />
-    <ClInclude Include="TwofishCipherProvider.h" />
-    <ClInclude Include="Util.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="ChaChaCipherProvider.cpp" />
-    <ClCompile Include="dllmain.cpp" />
-    <ClCompile Include="FileChunker.cpp" />
-    <ClCompile Include="FileChunkerState.cpp" />
-    <ClCompile Include="PasswordStrengthner.cpp" />
-    <ClCompile Include="pch.cpp">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
-    </ClCompile>
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

@@ -1,5 +1,5 @@
 #include "pch.h"
-#include "FileChunker.h"
+#include "../include/FileChunker.h"
 
 using namespace std;
 using namespace CredMannLib::Util;
