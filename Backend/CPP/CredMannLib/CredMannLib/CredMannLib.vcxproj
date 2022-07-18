@@ -23,6 +23,8 @@
     <ClInclude Include="include\BaseBlockCipherProvider.h" />
     <ClInclude Include="include\ChaChaCipherProvider.h" />
     <ClInclude Include="include\Common.h" />
+    <ClInclude Include="include\CredPackFormatElements.h" />
+    <ClInclude Include="include\CredPackFormatReader.h" />
     <ClInclude Include="include\DebugHelpers.h" />
     <ClInclude Include="include\FileChunker.h" />
     <ClInclude Include="include\FileChunkerState.h" />
