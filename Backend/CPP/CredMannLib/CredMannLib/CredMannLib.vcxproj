@@ -144,6 +144,8 @@
     <ClInclude Include="ChaChaCipherProvider.h" />
     <ClInclude Include="Common.h" />
     <ClInclude Include="DebugHelpers.h" />
+    <ClInclude Include="FileChunker.h" />
+    <ClInclude Include="FileChunkerState.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="ICryptoProvider.h" />
     <ClInclude Include="PasswordStrengthner.h" />
@@ -156,6 +158,8 @@
   <ItemGroup>
     <ClCompile Include="ChaChaCipherProvider.cpp" />
     <ClCompile Include="dllmain.cpp" />
+    <ClCompile Include="FileChunker.cpp" />
+    <ClCompile Include="FileChunkerState.cpp" />
     <ClCompile Include="PasswordStrengthner.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>

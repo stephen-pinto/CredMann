@@ -54,6 +54,12 @@
     <ClInclude Include="ChaChaCipherProvider.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="FileChunker.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FileChunkerState.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
@@ -66,6 +72,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="ChaChaCipherProvider.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FileChunker.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FileChunkerState.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
